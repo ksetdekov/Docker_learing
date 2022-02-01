@@ -46,3 +46,80 @@ docker push my-app:v1
 8. In this sample docker build command, what does the -t option do?
 ``` docker build -t my-app:v1 . ``` - It gives the image the name “my-app” and the tag “v1”.
 9. You use the docker push command to distribute an image to a registry. - true
+
+## Hands-on Lab: Introduction to Containers, Docker and IBM Cloud Container Registry
+
+```bash
+docker --version
+
+ibmcloud version # ibmcloud installed
+```
+
+показать images
+
+```bash
+docker images
+docker pull hello-world
+docker run hello-world
+```
+
+List the containers to see that your container ran and exited successfully.
+
+```bash
+docker ps -a
+docker container rm <container_id>
+```
+
+Build an image using a Dockerfile
+
+```bash
+docker build . -t myimage:v1
+```
+
+так как строим из базового образа - node:...alpine - он тоже будет в docker images показан
+
+запустим с параметрами
+
+```bash
+docker run -p 8080:8080 myimage:v1
+```
+
+в другом терминале и закроем все контейнеры $(docker ps -q) - список всех контейнеров работающих
+
+```bash
+curl localhost:8080
+
+docker stop $(docker ps -q)
+```
+
+### push to ibm cloud container registry
+
+he following command will give you information about the account you're targeting:  and get info about name spaces
+
+```bash
+ibmcloud target
+ibmcloud cr namespaces
+```
+
+set region
+
+```bash
+ibmcloud cr region-set us-south
+```
+
+Log your local Docker daemon into IBM Cloud Container Registry so that you can push to and pull from the registry.
+
+```bash
+ibmcloud cr login
+```
+
+tag image and push and list images
+
+```bash
+docker tag myimage:v1 us.icr.io/$MY_NAMESPACE/hello-world:1
+
+docker push us.icr.io/$MY_NAMESPACE/hello-world:1
+
+ibmcloud cr images
+
+```
