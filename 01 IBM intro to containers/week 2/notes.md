@@ -20,3 +20,17 @@ IT is not:
 * does not prescribe logging, monitoring or alerting solution
 * doesnt provide build-in middleware, DB, or other services
 
+## Kubernetes objects
+
+1. Labels and selectors
+
+    1. labels
+
+        * key/value pairs
+        * intended for ID of objects
+        * not unique
+        * group objects
+
+    2. selectors
+
+        * id and select groups of objects
