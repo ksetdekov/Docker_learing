@@ -21,7 +21,6 @@ export MY_NAMESPACE=sn-labs-$USERNAME
 
 Build and push the image again, as it may have been deleted automatically since you completed the first lab.
 
-
 ```docker
 FROM node:9.4.0-alpine
 COPY app.js .
@@ -81,3 +80,33 @@ kubectl get pods
 ```
 
 ## Create a Pod with a declarative command
+
+```bash
+# Use the kubectl apply command to set this configuration as the desired state in Kubernetes.
+
+
+kubectl apply -f hello-world-apply.yaml
+kubectl get deployments
+kubectl get pods
+kubectl delete pod hello-world-...
+kubectl get pods
+# удалить их получилось, но сам поднялся другой вместо него
+```
+
+## Load balancing the application
+
+```bash
+kubectl expose deployment/hello-world
+# expose to internet
+kubectl get services
+
+# create proxy for
+kubectl proxy
+
+curl -L localhost:8001/api/v1/namespaces/sn-labs-$USERNAME/services/hello-world/proxy
+
+
+for i in `seq 10`; do curl -L localhost:8001/api/v1/namespaces/sn-labs-$USERNAME/services/hello-world/proxy; done
+```
+
+more than 1 responds
