@@ -262,3 +262,11 @@ k create secret generec api-creds --from-literal=key=myseperkey
 ```
 
 need volume setup to use it
+
+## service binding
+
+bind a service to deployment
+
+* bind an IBM Cloud service to Kubernetes cluster
+* service credentials are available as Secrets to any application deployed on the cluser
+* mounting the Kubernetes Secret as a volume to 
