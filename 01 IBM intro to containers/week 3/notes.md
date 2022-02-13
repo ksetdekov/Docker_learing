@@ -269,4 +269,83 @@ bind a service to deployment
 
 * bind an IBM Cloud service to Kubernetes cluster
 * service credentials are available as Secrets to any application deployed on the cluser
-* mounting the Kubernetes Secret as a volume to 
+* mounting the Kubernetes Secret as a volume to deployments, make IBM cloud identidy and access management (IAM) API key available to the container that runs in your pod.
+
+0. create service using IBM cloud UI or CLI
+
+    ```bash
+    ibmcloud resource service-instance-create upkar-tone-analyser tone-analser standard us-south
+    ```
+
+1. bind the service to my cluster
+
+    ```bash
+    ibmcloud ks cluster service bind --cluster upkar_cluster --namespace default --service upkar-tone-analyzer
+    ```
+
+2. will get access to secrets cli
+
+    ```bash
+    kubectl get secrets --namespace=default
+    ```
+
+    or
+
+    in secrets dashboard
+
+3. use in apps
+
+    1. mount the secrets as a volume to pod
+
+        ```YAML
+        volumeMounts:
+                - mountPath: /opt/service-bind
+                name: service-bind-volume
+            volumes:
+                -name: service-bind-volume
+                secret:
+                    defaultMode: 420
+                    secretName: binding-tone
+        ```
+
+    2. reference the secret in my env
+
+## practicail quiz
+
+1. Before you create a Deployment, you must create the associated ReplicaSet. - no
+
+2. You can use a SecretMap to store and manage sensitive information, such as passwords. - false
+
+3. Which two of the following can be used to provide ConfigMaps to Pods and Deployments? Select all that apply. - string literal, yaml
+
+4. What does the Kubernetes Horizontal Pod Autoscaler do? - changes number of pods
+
+5. retriev secrets in default -     kubectl get secrets --namespace=default
+
+## quiz
+
+1. Which of the following statements describes what a ReplicaSet does? Select the four that apply.  - all but Autoscales an application
+
+2. Which of the following Kubernetes objects are used to run applications? Select the four that apply.  - all but ibmcloud CLI
+
+3. In this sample kubectl command, what does get deployments tell us? Select the four that apply.  - all but namespace
+
+4. Which of the following Kubernetes objects is used to store and manage sensitive information? - secrets
+
+5. Which of the following can be used to create ConfigMaps? Select the three that apply. - configmap cmd, key-value pairs, yaml config file
+
+6. How are ReplicaSets often created?  - One is automatically created for you when you create a Deployment.
+
+7. Which of the following Kubernetes objects are used to run applications? Select the three that apply. - deployments, service binding, configmaps
+
+8. Which of the following are used to provide ConfigMaps to Pods and Deployments? Select the two that apply. - string literal, yaml
+
+9. What Kubernetes capabilities enable an application to increase the number of Pods based on traffic? Select the two that apply. - autosclaler, hpa
+
+10. What does the following command do?
+
+    ```bash
+    kubectl get secrets --namespace=default 
+    ```
+
+     * Retrieves the secrets in the “default” namespace
