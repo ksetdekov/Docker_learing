@@ -2,7 +2,7 @@
 
 ## replica sets
 
-it is - 
+it is -
 
 * managing pods
 * maintain desired states
@@ -50,3 +50,42 @@ k get pods
 k delete pod hello...
 k get pods
 ```
+
+## autoscaling
+
+replica sets - set number of pods. we want to do in automatically.
+Use HPA (horizontal pod autoscaler) - by desired CPU or memory.
+
+we can auto scale deployment or a ReplicaSet using kubectl
+
+```bash
+kubectl get pods
+kubectl get rs
+kubectl autoscaler deploy hello-kubernetes --min=2 --max=5 --cpu-percent=10
+
+# check 
+k get pods
+k describe rs hello-kubernetes
+# weill have replicas number
+```
+
+alternative - craete a yaml file and describe desired autoscale behavior,
+
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+    name: hello-kubernetes
+    namespace: default
+spec:
+    maxReplicas: 5
+    minReplicas: 2
+    scaleTargetRef:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: hello-kubernetes
+    targetCPUUtilizationPercentage: 10
+```
+
+possible but ```kubectl autoscaler deploy hello-kubernetes --min=2 --max=5 --cpu-percent=10```
+is simpler
