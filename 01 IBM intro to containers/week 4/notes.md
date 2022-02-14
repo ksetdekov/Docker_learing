@@ -1,16 +1,16 @@
 ## quiz
 
-1. Which of the following most accurately describes the relationship between Red Hat OpenShift and Kubernetes? - OpenShift is a tool in the Kubernetes that ecosystem that can be used in conjunction with Kubernetes to deploy cloud-native applications.
+1. Which of the following most accurately describes the relationship between Red Hat OpenShift and Kubernetes?  - OpenShift packages Kubernetes with additional tooling to make developers and administrators more successful.
 
 2. Which of the following are Red Hat OpenShift build triggers? Select the three that apply.  - image change, configuration change, webhook
 
-3. Which of the following are possible with Istio service mesh? Select the three that apply. - encrypt, setting policies, crating protocols for S2Service communication
+3. Which of the following are possible with Istio service mesh? Select the three that apply. - encrypt, setting policies, and Routing traffic to two versions of a microservice
 
-4. Which of the following are types of operators available in OperatorHub? Select the three that apply. - community, red hat, custom controller
+4. Which of the following are types of operators available in OperatorHub? Select the three that apply. - community, red hat, certified
 
-5. Image streams can point to images in which of the following locations. Select the four that apply. - kubernetes cluster, public ext registries, openshift internal registry, other image streams
+5. Image streams can point to images in which of the following locations. Select the four that apply. - Private external registries, public ext registries, openshift internal registry, other image streams
 
-6. What is the Istio service mesh NOT used for? Select all that apply. - Observe and monitor services
+6. What is the Istio service mesh NOT used for? Select all that apply. - Encrypt Kubernetes secrets
 
 7. Kubernetes is the sole project inhosted by the CNCF. - false
 
