@@ -1,3 +1,14 @@
+# Kubernetes ecosystem
+
+## Kubernetes ecosystem overview
+
+1. K is not an all-inclusive platform 
+2. ecoysystem provides many services that K doesnt have
+
+[https://github.com/cncf/trailmap](https://github.com/cncf/trailmap) - this is a Cloud native computing foundation
+
+landscape [https://landscape.cncf.io](https://landscape.cncf.io)
+
 ## quiz
 
 1. Which of the following most accurately describes the relationship between Red Hat OpenShift and Kubernetes?  - OpenShift packages Kubernetes with additional tooling to make developers and administrators more successful.
