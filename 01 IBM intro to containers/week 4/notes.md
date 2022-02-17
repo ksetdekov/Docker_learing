@@ -2,12 +2,79 @@
 
 ## Kubernetes ecosystem overview
 
-1. K is not an all-inclusive platform 
+1. K is not an all-inclusive platform
 2. ecoysystem provides many services that K doesnt have
 
 [https://github.com/cncf/trailmap](https://github.com/cncf/trailmap) - this is a Cloud native computing foundation
 
 landscape [https://landscape.cncf.io](https://landscape.cncf.io)
+
+## Red Hat OpenShift
+
+1. hybrid cloud, entrerpirse Kubernetes application platform, tooling around the complete lifecycle of applications
+    1. orchestrate containers
+    2. build
+    3. CI/CD
+    4. monitoring
+    5. logging
+2. red hat linux $\rightarrow$ kubernets $\rightarrow$ cluster services $\rightarrow$ platform services, application services, developer services
+
+3. OKD - Upstream Kubernetes distribution embedded in OpenShift (analogy - kubernetes is a kernel, openshift is a distribution)
+
+## Red Had OpenShift and Kubernetes
+
+1. Similar Openshift buitlt with kubernetes, open source
+2. differences - OpenShift - commercial product, some more user conveniences + more in cli
+
+## Builds
+
+cloud native -> calls for automation.
+
+Asks for CI/CD
+
+Build - process of transforming input (like code) into resultant objects (like container)
+
+BuildConfig defines the process of the build to follow
+
+Build can automate a docker.
+
+### approaches
+
+#### Docker
+
+* repo + Dockerfile + artefacts
+* invokes Docker build
+* pushes image to internal registry
+
+#### Source-to-image (S2I)
+
+building reproducible container images.
+
+Aggregate builder image + code
+
+#### Custom build
+
+advanced.
+
+* define a builder image
+
+* custom builder images are Docker images that contain the logic needed to transform input into expected output
+
+### build triggers
+
+* webhook
+  * send a request to OS container platform API
+
+* image change
+  * new version of an image available
+  * useful for keeping base imgaes up to date
+
+* configuration change
+  * build when a new BuildConfig is created
+
+### ImageStream
+
+abstraction for referencing image within OpenShift. Do not contain image data, but merely pointers. Digests are immutable for each image, image streams can change. The source images that ImageStreams point to can be stored in the internal registry, external registries, or other ImageStreams.
 
 ## quiz
 
