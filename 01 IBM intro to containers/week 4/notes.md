@@ -76,6 +76,65 @@ advanced.
 
 abstraction for referencing image within OpenShift. Do not contain image data, but merely pointers. Digests are immutable for each image, image streams can change. The source images that ImageStreams point to can be stored in the internal registry, external registries, or other ImageStreams.
 
+## Operators
+
+1. powerful tool
+
+2. CRDs custom resourse definitions (new endpoint in K API)
+
+3. Can be installed in clusters
+
+4. Once installed, can be accessed with kubectl
+
+5. Dont change state $\rightarrow$ need custom controllers
+
+6. Custom controller + custorm resouses = Operator pattern
+
+7. A proxy for manual tasks of a human operator.
+
+Example:
+
+1. Deploy an application
+
+2. Create a and restore backup states.
+
+OperatorHub - in OpenShift Container Platfors.
+
+Types:
+
+1. Red Hat
+2. Certified
+3. Community
+4. Custom
+
+## Istio
+
+Service mesh. Helps (connect, sercure, control and observe)
+
+Challenges with microservices:
+
+1. Security
+2. Canary deployments
+3. A/B testing
+4. Cascading failures possible
+
+    1. Retries
+    2. Circuit breaking
+
+Traffic managed, security, observability.
+
+## Practice quiz
+
+1. Which of the following are Red Hat OpenShift build strategies? Select the three that apply. - custom, docker, source-to-image, not github webhook
+
+2. Which of the following are needed to create an operator? Select the two that apply. - custom resources + controller
+
+3. Istio’s observability features allow you to route users to different versions of a service in order to perform A/B testing or canary deployments. - false
+
+4. Which of the following are true of image streams? Select the two that apply. - help with image management, do not contain image data but pointers
+
+5. The Cloud Native Computing Foundation hosts Kubernetes and all the tools in the Kubernetes ecosystem. - true
+
 ## quiz
 
 1. Which of the following most accurately describes the relationship between Red Hat OpenShift and Kubernetes?  - OpenShift packages Kubernetes with additional tooling to make developers and administrators more successful.
